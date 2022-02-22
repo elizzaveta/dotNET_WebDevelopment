@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Project Page";
+}
+
+<h1>All projects</h1>
+<div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @{
+                foreach (var project in Model.Projects)
+                {
+                    <tr>
+                        <td>@project.Id</td>
+                        <td>@project.Name</td>
+                        <td>
+                            <div class="btn-group-vertical">
+                                <button class="btn btn-info" onclick="
+                                        location.href='@Url.Action("ProjectTasks", "Task", new {id = project.Id})'">Get tasks</button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>

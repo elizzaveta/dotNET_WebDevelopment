@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Task Page";
+}
+
+<h1>Here will be displayed menu where can be selected option to display something</h1>
+<div>
+    <div class="btn-group-vertical">
+        <button class="btn btn-info" onclick="location.href='@Url.Action("Tasks", "Task")'">Get All Tasks</button>
+        <button class="btn btn-info" onclick="location.href='@Url.Action("Projects", "Project")'">Get Tasks By Projects</button>
+        <button class="btn btn-info" onclick="location.href='@Url.Action("NewTask", "Task")'">Add New Task</button>
+        <button class="btn btn-info" onclick="location.href='@Url.Action("Employees", "Employee")'">Get Employee Unfinished Tasks</button>
+        <button class="btn btn-info" onclick="location.href='@Url.Action("UpdateTaskStatus", "Task")'">Update Task Status</button>
+    </div>
+</div>

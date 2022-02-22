@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Task Details Page";
+}
+
+<h1>Task details:</h1>
+<div>
+    <p>Title: @Model.Task.Title</p>
+    <p>Description:  @Model.Task.Description</p>
+    <p>Time for accomplishment:  @Model.Task.Time hours</p>
+    <p>Priority:  @Model.Task.Priority.Name</p>
+    <p>Status:  @Model.Task.Status.Name</p>
+    <p>Project:  @Model.Task.Project.Name</p>
+    <p>Employee:  @Model.Task.Employee.FirstName @Model.Task.Employee.LastName</p>
+</div>

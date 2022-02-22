@@ -1,0 +1,33 @@
+﻿@using System.Reflection.Metadata
+@model OneTaskModel
+
+@{
+    ViewData["Title"] = "Task Details Page";
+}
+
+@using (Html.BeginForm("PutTaskStatus", "Task", FormMethod.Post))
+{
+    <h1>Task details:</h1>
+    <div>
+        <p name="taskId" value=@Model.Task.Id>
+        <p>Title: @Model.Task.Title</p>
+        <p>Description: @Model.Task.Description</p>
+        <p>Time for accomplishment: @Model.Task.Time hours</p>
+        <p>Priority: @Model.Task.Priority.Name</p>
+        <div class="form-group">
+            <label>Priority</label>
+            <select class="form-control" name="status">
+                <option value="1">NotStarted</option>
+                <option value="2">OnExecution</option>
+                <option value="3">Done</option>
+            </select>
+        </div>
+        <p>Project: @Model.Task.Project.Name</p>
+        <p>Employee: @Model.Task.Employee.FirstName @Model.Task.Employee.LastName</p>
+    </div>
+    <div></div>
+    <div style="text-align: end">
+        <p></p>
+        <input type="submit" name="NewTask" value="Update" class="btn btn-success">
+    </div>
+}

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<TaskManager.MVC.ViewModels.OneProjectViewModel> 
+
+
+@using (Html.BeginForm("NewTask", "Task", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" name="title" placeholder="Enter task title...">
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" name="description" rows="5" 
+                placeholder="Enter task description..."></textarea>
+    </div>
+    <div class="form-group">
+        <label>Time for accomplishment</label>
+        <textarea class="form-control" name="timeForAccomplishment" rows="1" 
+                placeholder="Enter time in hours..."></textarea>
+    </div>
+    <div class="form-group">
+        <label>Priority</label>
+        <select class="form-control" name="priority">
+            <option value="1">Low</option>
+            <option value="2">Medium</option>
+            <option value="3">High</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Project</label>
+        <select class="form-control" name="project">
+            @{
+                foreach (var project in Model)
+                {
+                    <option value=@project.Project.Id>@project.Project.Name</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Employee</label>
+        <select class="form-control" name="employee">
+            @{
+                // int projectId = 
+                foreach (var project in Model)
+                {
+                    foreach (var employee in project.EmployeeViewModels)
+                    {
+                        <option value=@employee.Employee.Id>@employee.Employee.FirstName @employee.Employee.LastName :
+                            @project.Project.Name : Current tasks @employee.CurrentTasks</option>
+                    }
+                }
+            }
+        </select>
+    </div>
+    <div></div>
+    <div style="text-align: end">
+        <p></p>
+        <input type="submit" name="NewTask" value="Create" class="btn btn-success">
+    </div>
+}
